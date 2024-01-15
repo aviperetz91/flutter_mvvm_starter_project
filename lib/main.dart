@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_mvvm/configurations/environment_config.dart';
+import 'package:flutter_mvvm/themes/theme_manager.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_mvvm/localizations/locale_utils.dart';
 import 'package:flutter_mvvm/localizations/locale_manager.dart';
@@ -11,6 +12,7 @@ Future<void> main() async {
     MultiProvider(
       providers: [
         ChangeNotifierProvider<LocaleManager>(create: (_) => LocaleManager()),
+        ChangeNotifierProvider<ThemeManager>(create: (_) => ThemeManager()),
       ],
       child: const MyApp(),
     ),
@@ -22,16 +24,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<LocaleManager>(
-      builder: (context, localeManager, child) {
+    return Consumer2<LocaleManager, ThemeManager>(
+      builder: (context, localeManager, themeManager, child) {
         return MaterialApp(
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
           locale: localeManager.locale,
-          theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-            useMaterial3: true,
-          ),
+          theme: themeManager.theme,
           home: const MyHomePage(),
         );
       },
@@ -49,17 +48,21 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   late LocaleManager localeManager;
+  late ThemeManager themeManager;
 
   @override
   void initState() {
     super.initState();
     localeManager = Provider.of<LocaleManager>(context, listen: false);
+    themeManager = Provider.of<ThemeManager>(context, listen: false);
   }
 
-  void handleLanguageChange(languageCode) {
-    if (languageCode != null) {
-      localeManager.setLocale(languageCode);
-    }
+  void handleLanguageChange(String languageCode) {
+    localeManager.setLocale(languageCode);
+  }
+
+  void handleThemeChange(String themeType) {
+    themeManager.changeTheme(themeType);
   }
 
   void _incrementCounter() {
@@ -76,9 +79,9 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(translate(context).appName),
         actions: [
           PopupMenuButton<String>(
-            icon: const Icon(
+            icon: Icon(
               Icons.language,
-              color: Colors.black87,
+              color: Theme.of(context).colorScheme.primary,
             ),
             onSelected: handleLanguageChange,
             itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
@@ -89,6 +92,23 @@ class _MyHomePageState extends State<MyHomePage> {
               const PopupMenuItem<String>(
                 value: en,
                 child: Text(english),
+              ),
+            ],
+          ),
+          PopupMenuButton<String>(
+            icon: Icon(
+              Icons.visibility,
+              color: Theme.of(context).colorScheme.primary,
+            ),
+            onSelected: handleThemeChange,
+            itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+              PopupMenuItem<String>(
+                value: ThemeType.light.name,
+                child: Text(ThemeType.light.name),
+              ),
+              PopupMenuItem<String>(
+                value: ThemeType.dark.name,
+                child: Text(ThemeType.dark.name),
               ),
             ],
           ),
