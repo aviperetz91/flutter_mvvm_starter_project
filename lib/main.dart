@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_mvvm/configurations/environment_config.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_mvvm/localizations/locale_utils.dart';
 import 'package:flutter_mvvm/localizations/locale_manager.dart';
 
-void main() {
+Future<void> main() async {
+  await EnvironmentConfig.load(EnvType.dev);
   runApp(
     MultiProvider(
       providers: [
