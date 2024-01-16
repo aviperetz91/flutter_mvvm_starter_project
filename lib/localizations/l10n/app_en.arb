@@ -1,3 +1,6 @@
 {
-  "appName": "Flutter App Template"
+  "appName": "Flutter App Template",
+  "errorSceenTitle": "Something Went Wrong!",
+  "errorScreenSubtitle":
+      "We're working to fix the issue, Please try again later."
 }
