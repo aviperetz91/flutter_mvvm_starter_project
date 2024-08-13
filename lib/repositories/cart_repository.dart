@@ -63,4 +63,19 @@ class CartRepository {
       rethrow;
     }
   }
+
+  Future<dynamic> deleteCart(
+    String userId,
+  ) async {
+    try {
+      final response = await _apiService.delete(
+        ApiEndpoints.deleteCart.replaceFirst('{userId}', userId),
+        {},
+        {},
+      );
+      return response;
+    } catch (e) {
+      rethrow;
+    }
+  }
 }

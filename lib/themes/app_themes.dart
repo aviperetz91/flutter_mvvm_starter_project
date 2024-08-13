@@ -152,7 +152,7 @@ class AppThemes {
     ),
     colorScheme: const ColorScheme.dark().copyWith(
       primary: AppColors.light,
-      onPrimary: AppColors.dark,
+      onPrimary: Colors.black54,
       primaryContainer: AppColors.dark,
       secondary: AppColors.lightGrey,
       onSecondary: AppColors.dark,

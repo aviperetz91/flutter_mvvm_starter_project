@@ -1,5 +1,11 @@
 {
-  "appName": "Flutter App Template",
+  "appName": "Flutter MVVM - Cart Example",
+  "quantity": "Quantity",
+  "total": "Total",
+  "emptyCartScreenTitle": "Your Cart is Empty",
+  "emptyCartScreenSubtitle":
+      "Looks like you have not added anything to you cart.",
+  "clearCart": "Clear Cart",
   "errorSceenTitle": "Something Went Wrong!",
   "errorScreenSubtitle":
       "We're working to fix the issue, Please try again later."

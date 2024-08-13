@@ -1,5 +1,11 @@
 {
-  "appName": "תבנית אפליקציית פלאטר",
+  "appName": "Flutter MVVM - דוגמא לעגלת קניות",
+  "quantity": "כמות",
+  "total": "סה\"כ",
+  "emptyCartScreenTitle": "עגלת הקניות שלך ריקה",
+  "emptyCartScreenSubtitle":
+      "נראה שעוד לא הוספת פריטים לעגלת הקניות.",
+  "clearCart": "נקה עגלה",
   "errorSceenTitle": "אופס! משהו השתבש",
   "errorScreenSubtitle":
       "אנו עובדים על תיקון התקלה, אנא נסו שנית במועד מאוחר יותר."

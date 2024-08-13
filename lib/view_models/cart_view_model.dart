@@ -18,6 +18,7 @@ class CartViewModel with ChangeNotifier {
   ApiResponse getCartApiResponse = ApiResponse.initial();
   ApiResponse addItemToCartApiResponse = ApiResponse.initial();
   ApiResponse removeItemFromCartApiResponse = ApiResponse.initial();
+  ApiResponse deleteCartApiResponse = ApiResponse.initial();
 
   void setCart(ApiResponse response) {
     if (response.data != null) {
@@ -83,6 +84,22 @@ class CartViewModel with ChangeNotifier {
       setCart(removeItemFromCartApiResponse);
     } catch (error) {
       removeItemFromCartApiResponse = ApiResponse.error(
+        error is ApiException ? error.code : null,
+        error is ApiException ? error.message : error.toString(),
+      );
+    }
+  }
+
+  Future<void> deleteCart(String userId) async {
+    try {
+      deleteCartApiResponse = ApiResponse.loading();
+      dynamic responseJson = await _cartRepository.deleteCart(
+        userId,
+      );
+      deleteCartApiResponse = ApiResponse.completed(responseJson);
+      setCart(deleteCartApiResponse);
+    } catch (error) {
+      deleteCartApiResponse = ApiResponse.error(
         error is ApiException ? error.code : null,
         error is ApiException ? error.message : error.toString(),
       );

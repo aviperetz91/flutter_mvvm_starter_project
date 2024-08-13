@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_common_widgets/view_models/error_view_model.dart';
-import 'package:flutter_common_widgets/view_models/loading_view_model.dart';
-import 'package:flutter_common_widgets/widgets/error_screen.dart';
-import 'package:flutter_common_widgets/widgets/loading_screen.dart';
+
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_mvvm/configurations/environment_config.dart';
 import 'package:flutter_mvvm/localizations/locale_utils.dart';
+import 'package:flutter_mvvm/services/navigation/navigation_service.dart';
 import 'package:flutter_mvvm/themes/theme_manager.dart';
 import 'package:flutter_mvvm/view_models/cart_view_model.dart';
+import 'package:flutter_mvvm/view_models/error_view_model.dart';
+import 'package:flutter_mvvm/view_models/loading_view_model.dart';
 import 'package:flutter_mvvm/views/cart_screen.dart';
+import 'package:flutter_mvvm/views/error_screen.dart';
+import 'package:flutter_mvvm/views/loading_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_mvvm/localizations/locale_manager.dart';
 
@@ -56,13 +58,15 @@ class MyApp extends StatelessWidget {
                 child!,
                 const LoadingScreen(),
                 ErrorScreen(
+                  icon: Icons.warning_amber,
                   title: translate(context).errorSceenTitle,
-                  subTitle: errorViewModel.errorMessage ??
+                  subtitle: errorViewModel.errorMessage ??
                       translate(context).errorScreenSubtitle,
                 )
               ],
             );
           },
+          navigatorKey: NavigationService.navigatorKey,
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
           locale: localeManager.locale,
