@@ -233,7 +233,7 @@ class _CartScreenState extends State<CartScreen> {
                             ),
                           ),
                           trailing: Text(
-                            '\$${cartItem.price.toString().toPrice()}',
+                            '\$${cartItem.price.toStringAsFixed(2).toPrice()}',
                             style: const TextStyle(fontWeight: FontWeight.bold),
                           ),
                         );
@@ -259,7 +259,7 @@ class _CartScreenState extends State<CartScreen> {
                                       fontWeight: FontWeight.bold),
                                 ),
                                 Text(
-                                  '\$${cartViewModel.cart!.totalAmount}',
+                                  '\$${cartViewModel.cart!.totalAmount.toStringAsFixed(2).toPrice()}',
                                   style: const TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold),
