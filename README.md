@@ -1,6 +1,12 @@
 # Flutter MVVM Starter Project
 
-This project is a starter Flutter application implementing the Model-View-ViewModel (MVVM) architecture. It's designed to demonstrate best practices in app development with Flutter and it's including multi-lannguage support, theme management, state management, basic environment configuration, HTTP networking and exception handling.
+This project is a starter Flutter application that implements the Model-View-ViewModel (MVVM) architecture with a Cart feature as an example. It is designed to demonstrate best practices in Flutter app development, including multi-language support, theme management, state management, basic environment configuration, HTTP networking, exception handling and unit testing.
+
+## Preview
+
+| Light Theme with English Layout | Dark Theme with Hebrew Layout |
+|:-------------------------------:|:-----------------------------:|
+| ![Light Theme](assets/images/screenshot_1.png) | ![Dark Theme](assets/images/screenshot_2.png) |
 
 ## Getting Started
 
@@ -49,6 +55,7 @@ flutter run
 - HTTP Networking Using Dio
 - Exception Handling
 - MVVM Architecture
+- Unit Testing
 
 ## Build
 
