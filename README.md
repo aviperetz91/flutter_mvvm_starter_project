@@ -4,8 +4,8 @@ This project is a starter Flutter application that implements the Model-View-Vie
 
 ## Preview
 
-| Light Theme with English Layout | Dark Theme with Hebrew Layout |
-|:-------------------------------:|:-----------------------------:|
+|        Light Theme with English Layout         |         Dark Theme with Hebrew Layout         |
+| :--------------------------------------------: | :-------------------------------------------: |
 | ![Light Theme](assets/images/screenshot_1.png) | ![Dark Theme](assets/images/screenshot_2.png) |
 
 ## Getting Started
@@ -97,7 +97,8 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Avi Peretz
 
-- Linkedin: [https://www.linkedin.com/in/avi-peretz-778ba6177/](https://www.linkedin.com/in/avi-peretz-778ba6177/)
+- Website: [https://www.aviperetz.com](https://www.aviperetz.com/)
+- Linkedin: [https://www.linkedin.com/in/avi-peretz-778ba6177](https://www.linkedin.com/in/avi-peretz-778ba6177/)
 - Email: aviprz91@gmail.com
 
 Project Link: [https://github.com/aviperetz91/flutter_mvvm_starter_project](https://github.com/aviperetz91/flutter_mvvm_starter_project)
